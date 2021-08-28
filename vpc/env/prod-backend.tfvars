@@ -1,0 +1,4 @@
+bucket              = "polina-devops"
+key                 = "Mutable/vpc/prod/terraform.tfstate"
+region              = "us-east-1"
+dynamodb_table      = "terraform"
