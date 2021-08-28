@@ -17,3 +17,4 @@ resource "aws_subnet" "public" {
     Name                = "${var.ENV}-PUBLIC-${count.index+1}"
   }
 }
+
