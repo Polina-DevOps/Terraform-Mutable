@@ -4,3 +4,5 @@ variable "ENV" {}
 variable "PRIVATE_SUBNET_CIDR" {}
 variable "PUBLIC_SUBNET_CIDR" {}
 variable "VPC_SUBNET_AZ" {}
+variable "DEFAULT_VPC_ID" {}
+variable "DEFAULT_VPC_CIDR" {}

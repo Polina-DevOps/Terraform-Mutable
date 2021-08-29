@@ -9,6 +9,7 @@ resource "aws_subnet" "private" {
 }
 
 resource "aws_subnet" "public" {
+  depends_on            = [aws_vpc_ipv4_cidr_block_association.public_cidr]
   count                 = length(var.PUBLIC_SUBNET_CIDR)
   vpc_id                = aws_vpc.main.id
   cidr_block            = element(var.PUBLIC_SUBNET_CIDR,count.index )
@@ -18,3 +19,14 @@ resource "aws_subnet" "public" {
   }
 }
 
+resource "aws_route_table_association" "public_rt" {
+  count                 = length(var.PUBLIC_SUBNET_CIDR)
+  subnet_id             = element(aws_route_table.public.*.id,count.index )
+  route_table_id        = aws_route_table.public.id
+}
+
+resource "aws_route_table_association" "private_rt" {
+  count                 = length(var.PRIVATE_SUBNET_CIDR_SUBNET_CIDR)
+  subnet_id             = element(aws_route_table.private.*.id,count.index )
+  route_table_id        = aws_route_table.private.id
+}
