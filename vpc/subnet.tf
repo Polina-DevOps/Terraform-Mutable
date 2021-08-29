@@ -20,14 +20,14 @@ resource "aws_subnet" "public" {
 }
 
 resource "aws_route_table_association" "public_rt" {
-  depends_on            = [aws_nat_gateway.natgw]
+  depends_on            = [aws_subnet.public]
   count                 = length(var.PUBLIC_SUBNET_CIDR)
   subnet_id             = element(aws_route_table.public.*.id,count.index )
   route_table_id        = aws_route_table.public.id
 }
 
 resource "aws_route_table_association" "private_rt" {
-  depends_on            = [aws_nat_gateway.natgw]
+  depends_on            = [aws_subnet.private]
   count                 = length(var.PRIVATE_SUBNET_CIDR)
   subnet_id             = element(aws_route_table.private.*.id,count.index )
   route_table_id        = aws_route_table.private.id
