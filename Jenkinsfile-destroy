@@ -1,0 +1,24 @@
+pipeline {
+  agent any
+  parameters {
+    choice(name: 'ACTION', choices: ['dev-destroy', 'prod-destroy'], description: 'Choose Environment')
+  }
+  stages {
+    stage('DB Destroy') {
+      steps {
+        sh '''
+          cd databases
+          make ${ACTION}
+        '''
+      }
+    }
+    stage('VPC Destroy') {
+      steps {
+        sh '''
+          cd vpc
+          make ${ACTION}
+        '''
+      }
+    }
+  }
+}
