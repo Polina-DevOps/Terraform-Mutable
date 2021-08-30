@@ -1,6 +1,6 @@
-folder('CI-VPC') {
-    displayName('CI-VPC')
-    description('CI-VPC')
+folder('CI-Pipelines') {
+    displayName('CI-Pipelines')
+    description('CI-Pipelines')
 }
 
     pipelineJob("CI-VPC/${j}") {
