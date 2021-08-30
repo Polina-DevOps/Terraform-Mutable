@@ -36,4 +36,4 @@ output "PUBLIC_SUBNETS" {
 
 //output "INTERNAL_DNS_ZONE_ID" {
 //  value = var.INTERNAL_DNS_ZONE_ID
-//}
+}
