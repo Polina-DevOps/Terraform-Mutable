@@ -6,3 +6,4 @@ variable "PUBLIC_SUBNET_CIDR" {}
 variable "VPC_SUBNET_AZ" {}
 variable "DEFAULT_VPC_ID" {}
 variable "DEFAULT_VPC_CIDR" {}
+variable "INTERNAL_DNS_ZONE_ID" {}

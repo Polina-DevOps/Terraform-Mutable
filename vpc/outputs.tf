@@ -34,6 +34,6 @@ output "PUBLIC_SUBNETS" {
   value = aws_subnet.public.*.id
 }
 
-//output "INTERNAL_DNS_ZONE_ID" {
-//  value = var.INTERNAL_DNS_ZONE_ID
+output "INTERNAL_DNS_ZONE_ID" {
+  value = var.INTERNAL_DNS_ZONE_ID
 }
